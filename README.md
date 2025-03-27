@@ -65,11 +65,11 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement unsubscribe function in Notification controller.`
     -   [x] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
-    -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
-    -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
-    -   [ ] Commit: `Implement publish function in Program service and Program controller.`
-    -   [ ] Commit: `Edit Product service methods to call notify after create/delete.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
+    -   [x] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
+    -   [x] Commit: `Implement notify function in Notification service to notify each Subscriber.`
+    -   [x] Commit: `Implement publish function in Program service and Program controller.`
+    -   [x] Commit: `Edit Product service methods to call notify after create/delete.`
+    -   [x] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -93,3 +93,9 @@ This is the place for you to write reflections:
 3. Postman is an invaluable tool for testing APIs. It allows for easy creation and execution of HTTP requests, making it simple to test endpoints and view responses. Features like collections, environment variables, and automated testing scripts are particularly useful for group projects, as they streamline collaboration and ensure consistency in testing across different environments.
 
 #### Reflection Publisher-3
+
+1. In this tutorial case, we use the Push model of the Observer Pattern. The publisher pushes notifications to subscribers whenever a product is created, promoted, or deleted. This means that the subscribers do not need to request updates; they receive them automatically when they occur.
+
+2. If we had used the Pull model instead, the subscribers would need to actively request updates from the publisher. The advantage of the Pull model is that it can reduce unnecessary network traffic, as subscribers only pull data when they need it. However, this can also lead to delays in receiving notifications, as subscribers may not always be aware of when updates occur. In contrast, the Push model ensures that subscribers receive real-time updates, which is crucial for timely notifications in the context of product changes.
+
+3. If we decide not to use multi-threading in the notification process, the program would become less efficient. Without multi-threading, the notification process would block the main thread, causing delays in handling other requests. This could lead to a poor user experience, especially if there are multiple subscribers to notify. Multi-threading allows the program to handle notifications concurrently, ensuring that the main application remains responsive while notifications are being sent.
