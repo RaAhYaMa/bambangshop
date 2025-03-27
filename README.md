@@ -48,15 +48,15 @@ You can install Postman via this website: https://www.postman.com/downloads/
     (You might want to use `cargo check` if you only need to verify your work without running the app.)
 
 ## Mandatory Checklists (Publisher)
--   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop to a new repository.
+-   [x] Clone https://gitlab.com/ichlaffterlalu/bambangshop to a new repository.
 -   **STAGE 1: Implement models and repositories**
-    -   [ ] Commit: `Create Subscriber model struct.`
-    -   [ ] Commit: `Create Notification model struct.`
-    -   [ ] Commit: `Create Subscriber database and Subscriber repository struct skeleton.`
-    -   [ ] Commit: `Implement add function in Subscriber repository.`
-    -   [ ] Commit: `Implement list_all function in Subscriber repository.`
-    -   [ ] Commit: `Implement delete function in Subscriber repository.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
+    -   [x] Commit: `Create Subscriber model struct.`
+    -   [x] Commit: `Create Notification model struct.`
+    -   [x] Commit: `Create Subscriber database and Subscriber repository struct skeleton.`
+    -   [x] Commit: `Implement add function in Subscriber repository.`
+    -   [x] Commit: `Implement list_all function in Subscriber repository.`
+    -   [x] Commit: `Implement delete function in Subscriber repository.`
+    -   [x] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -77,6 +77,12 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
+
+1. In the Observer pattern, the Subscriber is often defined as an interface. In the context of the BambangShop application, we can argue that a single `Model` struct (the `Subscriber` struct) is sufficient. This is because the `Subscriber` struct already encapsulates the necessary properties (like `url` and `name`) that define a subscriber's identity and behavior. However, if we anticipate the need for different types of subscribers with varying behaviors, implementing an interface or trait could provide more flexibility and extensibility.
+
+2. The `id` in the Program and `url` in Subscriber are intended to be unique identifiers. Using a `Vec` (list) for managing subscribers could lead to inefficiencies, especially when searching for a specific subscriber by `url`. In contrast, using a `DashMap` (map/dictionary) allows for faster lookups and ensures that each `url` is unique, making it a more suitable choice for this case.
+
+3. In the context of managing a list of subscribers, using `DashMap` provides thread safety, which is crucial in a concurrent environment. While a Singleton pattern could be implemented to manage the subscribers, it may not inherently provide the same level of thread safety as `DashMap`. Therefore, retaining `DashMap` is advisable to ensure safe concurrent access to the list of subscribers.
 
 #### Reflection Publisher-2
 
