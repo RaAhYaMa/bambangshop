@@ -58,12 +58,12 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement delete function in Subscriber repository.`
     -   [x] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+    -   [x] Commit: `Create Notification service struct skeleton.`
+    -   [x] Commit: `Implement subscribe function in Notification service.`
+    -   [x] Commit: `Implement subscribe function in Notification controller.`
+    -   [x] Commit: `Implement unsubscribe function in Notification service.`
+    -   [x] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [x] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
     -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
     -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
@@ -85,5 +85,11 @@ This is the place for you to write reflections:
 3. In the context of managing a list of subscribers, using `DashMap` provides thread safety, which is crucial in a concurrent environment. While a Singleton pattern could be implemented to manage the subscribers, it may not inherently provide the same level of thread safety as `DashMap`. Therefore, retaining `DashMap` is advisable to ensure safe concurrent access to the list of subscribers.
 
 #### Reflection Publisher-2
+
+1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. We need to separate “Service” and “Repository” from a Model to adhere to the Single Responsibility Principle, which states that a class should have only one reason to change. By separating these concerns, we can achieve better modularity, making the code easier to maintain and test.
+
+2. If we only use the Model, we risk creating a tightly coupled system where the business logic and data access are intertwined. This can lead to increased code complexity, as changes in one area may necessitate changes in others. For example, interactions between models like Program, Subscriber, and Notification could become convoluted, making it harder to understand and manage the codebase.
+
+3. Postman is an invaluable tool for testing APIs. It allows for easy creation and execution of HTTP requests, making it simple to test endpoints and view responses. Features like collections, environment variables, and automated testing scripts are particularly useful for group projects, as they streamline collaboration and ensure consistency in testing across different environments.
 
 #### Reflection Publisher-3
